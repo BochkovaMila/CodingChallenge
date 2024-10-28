@@ -9,6 +9,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
 import { StackParamList } from "./App";
 
+import { ProductItem } from "./components/ProductItem";
+
 export default (props: StackScreenProps<StackParamList, "Home">) => {
   const fetching = useSelector((state: RootState) => state.inventory.fetching);
   const inventory = useSelector(selectors.selectInventory);
@@ -22,7 +24,7 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
   }, [props.navigation]);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#FDFBFC" }}>
       <Appbar.Header>
         <Appbar.Content title="Inventory" />
       </Appbar.Header>
@@ -38,18 +40,15 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
       >
         <SafeAreaView edges={["left", "bottom", "right"]}>
           <DataTable>
-            <DataTable.Header>
-              <DataTable.Title>Product Code</DataTable.Title>
-              <DataTable.Title numeric>Scan Date</DataTable.Title>
-            </DataTable.Header>
             {inventory.map((record, index) => (
-              <DataTable.Row key={index}>
-                <DataTable.Cell>{record.fields["Product Code"]}</DataTable.Cell>
-                <DataTable.Cell numeric>
-                  {new Date(record.fields.Posted).toLocaleDateString()}{" "}
-                  {new Date(record.fields.Posted).toLocaleTimeString()}
-                </DataTable.Cell>
-              </DataTable.Row>
+              <ProductItem 
+                key={index}
+                productCode={record.fields["Product Code"]}
+                scanDate={new Date(record.fields.Posted)} 
+                productName={record.fields["Product Name"]}
+                productImage={record.fields["Product Image"]}
+                productCategories={record.fields["Product Categories"]}
+              />
             ))}
           </DataTable>
         </SafeAreaView>
@@ -58,7 +57,7 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
       <SafeAreaView style={styles.fab}>
         <FAB
           icon={() => (
-            <MaterialCommunityIcons name="barcode" size={24} color="#0B5549" />
+            <MaterialCommunityIcons name="barcode-scan" size={24} color="#0B5549" />
           )}
           label="Scan Product"
           onPress={() => props.navigation.navigate("Camera")}
