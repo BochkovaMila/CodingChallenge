@@ -35,6 +35,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ productCode, scanDate,
 
     return (
         <View style={[styles.card, styles.shadow]}>
+
             <Image
                 source={productImage ? { uri: productImage } : require('../../assets/placeholder.png')}
                 style={productImage ? styles.image : styles.placeholder}
