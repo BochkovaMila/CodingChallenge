@@ -1,4 +1,5 @@
 # Coding Challenge (original task below)
+This repository contains the solution to the INV-1 task of the Coding Challenge.
 
 ## Implementation
 My implementation of choice is:
