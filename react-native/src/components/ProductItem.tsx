@@ -34,16 +34,18 @@ export const ProductItem: React.FC<ProductItemProps> = ({ productCode, scanDate,
     };
 
     return (
-        <View style={[styles.card, styles.shadowProp]}>
+        <View style={[styles.card, styles.shadow]}>
             <Image
                 source={productImage ? { uri: productImage } : require('../../assets/placeholder.png')}
                 style={productImage ? styles.image : styles.placeholder}
             />
             <View style={styles.infoContainer}>
                 <View style={styles.textContainer}>
-                    <Text numberOfLines={isExpanded ? undefined : 1} style={styles.productName}>{productName}</Text>
+                    {/* To limit the Product Name to 3 lines 
+                    <Text numberOfLines={isExpanded ? 3 : 1} style={styles.productName}>{productName}</Text>  */}
+                    <Text numberOfLines={isExpanded ? undefined : 1} style={styles.productName}>{productName}</Text> 
 
-                    {isNew && <Image source={require('../../assets/newTag.png')} style={styles.newTag} />}
+                    {isNew && <Image source={require('../../assets/newTag.png')} style={styles.newTag}/>}
 
                     <TouchableOpacity onPress={toggleExpand} activeOpacity={0.7}>
                         <Icon size={20} name={isExpanded ? "up" : "down"} style={styles.icon}/>
@@ -56,7 +58,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ productCode, scanDate,
                     <View style={styles.expandedSection}>
                         <View style={styles.tagsContainer}>
                             {categories?.map((category, index) => (
-                                <Chip key={index} style={styles.tag} textStyle={styles.tagText} >{category}</Chip>
+                                <Chip key={index} style={styles.tag} textStyle={styles.tagText}>{category}</Chip>
                             ))}
                         </View>
                     </View>
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         marginHorizontal: 16,
     },
-    shadowProp: {
+    shadow: {
         backgroundColor: '#F8F9FC',
         shadowColor: 'rgba(27, 38, 51, 0.25)',
         shadowOffset: {width: 0, height: 0},
