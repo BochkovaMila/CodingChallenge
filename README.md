@@ -1,3 +1,25 @@
+# Coding Challenge (original task below)
+
+## Implementation
+My implementation of choice is:
+- React Native: Expo, TypeScript, React Native Paper and Redux.
+
+## Demo
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a4a19742-4655-485a-bc4b-f257eb3fe6a4" width="292.5" height="633" alt="animated" />
+</p>
+
+## Screenshots
+
+### iOS (iPhone 11)
+<img src="https://github.com/user-attachments/assets/3aec0923-7405-4340-94ad-1dafc3cfd47b" width="292.5" height="633"> 
+<img src="https://github.com/user-attachments/assets/db359433-9087-4505-8142-5186d80df595" width="292.5" height="633"> 
+
+### Android (Pixel 7)
+<img src="https://github.com/user-attachments/assets/2f84e845-63ea-434c-bbb2-5deef4d20ead" width="292.5" height="633"> 
+<img src="https://github.com/user-attachments/assets/336e2dfa-9731-49a0-98a7-1e429d4c095e" width="292.5" height="633">
+
 # Coding Challenge
 
 Inventory is a small utility app that could be used in a logistics company. It has two use cases:
